@@ -27,7 +27,7 @@ $$
 Multipile the matrix with vector\[0,0,f,1\]<sup>T</sup> and \[0,0,n,1\]<sup>T</sup> resprents the postion of dot in assumption 2) and 3),we should get the equalation:
  $$
 \begin{cases}
-    Af+b=f^2\\\
+    Af+b=f^2\\\\
     An+B=n^2
 \end{cases}
  $$
