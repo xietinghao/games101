@@ -7,7 +7,7 @@ $$
     \begin{matrix}
     \mathbf{l}\times\mathbf{s} & \mathbf{l} & \mathbf{s}
     \end{matrix}
-$
+$$
 As rotation matrix is orthogonal matrix, we can get the inverse matrix by transposing matrix above. Then the matrix we get is view matrix before translation. The last step is add translation to the matrix, it can be implemented by homogeneous coordinate.
 Perspective transformation squeeze quadrangular frustum to cuboid, then orthographic transformation can make it be canonical cuboid.<br>
 Perspective matrix is build on assumptions below:<br>
@@ -17,27 +17,27 @@ Perspective matrix is build on assumptions below:<br>
 So we can deduce that first and scond row is \[n,0,0,0\] from assumption 1), and the forth row is \[0,0,1,0\], if we want the ration be n/z.<br>
 And we can get the third row like \[0,0,A,B\]. So M<sub>perp</sub> is<br>  
 $$
-    \begin{bmatrix}
+    \begin{matrix}
     n & 0 & 0 & 0\\
     0 & n & 0 & 0\\
     0 & 0 & A & B\\
     0 & 0 & 1 & 0
-    \end{bmatrix}
+    \end{matrix}
 $$
 Multipile the matrix with vector\[0,0,f,1\]<sup>T</sup> and \[0,0,n,1\]<sup>T</sup> resprents the postion of dot in assumption 2) and 3),we should get the equalation:
  $$
 \begin{cases}
-    Af+b=f^2\\
+    Af+b=f^2<br>
     An+B=n^2
 \end{cases}
  $$
 Resolving the equation sets, A=n+f,and B=-nf. So we get the perspective matrix.
 Squeezeing cuboid to canonical cuboid need scale and translation, it's easy to get M<sub>ortho</sub>:
-$$\begin{array}{20}
+$$\begin{matrix}
     \frac{2}{r-l} & 0 & 0 & -\frac{l+r}{2}\\
     0 & \frac{2}{t-b} & 0 & -\frac{b+t}{2}\\
     0 & 0 & \frac{2}{n-f} & -\frac{n+f}{2}\\
     0 & 0 & 0 & 1
-\end{array} 
+\end{matrix} 
 $$
 At last, we multipy dot by M<sub>perp</sub> and then M<sub>ortho</sub>, that's mean squeezing cuboid to canonical cuboid.
