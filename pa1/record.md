@@ -15,7 +15,7 @@ Perspective matrix is build on assumptions below:<br>
     2)Any dot of near plain remain same position after squeezing.<br>
     3)Mid dot of far plain remain same position after squeezing.<br>
 So we can deduce that first and scond row is \[n,0,0,0\] from assumption 1), and the forth row is \[0,0,1,0\], if we want the ration be n/z.<br>
-And we can get the third row like \[0,0,A,B\]. So M<sub>perp</sub> is 
+And we can get the third row like \[0,0,A,B\]. So M<sub>perp</sub> is<br> 
  $$
     \begin{matrix}
     n & 0 & 0 & 0\\
