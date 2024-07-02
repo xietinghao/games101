@@ -33,12 +33,10 @@ Multipile the matrix with vector\[0,0,f,1\]<sup>T</sup> and \[0,0,n,1\]<sup>T</s
  $$
 Resolving the equation sets, A=n+f,and B=-nf. So we get the perspective matrix.
 Squeezeing cuboid to canonical cuboid need scale and translation, it's easy to get M<sub>ortho</sub>:
- $$
 \\begin{array}
     \frac{2}{r-l} & 0 & 0 & -\frac{l+r}{2}\\
     0 & \frac{2}{t-b} & 0 & -\frac{b+t}{2}\\
     0 & 0 & \frac{2}{n-f} & -\frac{n+f}{2}\\
     0 & 0 & 0 & 1
 \\end{array} 
- $$
 At last, we multipy dot by M<sub>perp</sub> and then M<sub>ortho</sub>, that's mean squeezing cuboid to canonical cuboid.
