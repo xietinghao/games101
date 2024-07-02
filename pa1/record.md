@@ -3,11 +3,10 @@ Model, view and perspective transformation is before rasterization.
 Model tansformation put camera and things in local coordinate system, so relative postion between camera and things is determined.<br>
 View transformation put camera in origin, and rotate it's look-up direction and shoot direction to -z and y. And then the direction of postion can be determined by look-up direction cross product by shoot direction. In fact, any rotation in 3D space can be decompose into three rotations, one is around x, another is around y and the other is z. By placing camera in origin and point camera correctly, we can reduce workload of computation.<br>
 To implement transformation above, we need to deduce the transformation matrix. But is difficult to dededuce matrix from \[ $\mathbf{p}$, $\mathbf{look-up}$, $\mathbf{shoot}$ \] to \[ $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$ \]. A is\[1,0,0\]<sup>T</sup>, b is \[0,1,0\]<sup>T</sup> and c is \[0,0,1\]<sup>T</sup>.But it's easy to deduce from the later to the former. It's easy to get matrix:
-$$
-\begin{matrix}
+$\begin{matrix}
     \mathbf{l}\times\mathbf{s} & \mathbf{l} & \mathbf{s}
 \end{matrix}
-$$
+$
 As rotation matrix is orthogonal matrix, we can get the inverse matrix by transposing matrix above. Then the matrix we get is view matrix before translation. The last step is add translation to the matrix, it can be implemented by homogeneous coordinate.
 Perspective transformation squeeze quadrangular frustum to cuboid, then orthographic transformation can make it be canonical cuboid.<br>
 Perspective matrix is build on assumptions below:<br>
