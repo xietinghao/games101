@@ -2,7 +2,7 @@
 Model, view and perspective transformation is before rasterization. 
 Model tansformation put camera and things in local coordinate system, so relative postion between camera and things is determined.
 View transformation put camera in origin, and rotate it's look-up direction and shoot direction to -z and y. And then the direction of postion can be determined by look-up direction cross product by shoot direction. In fact, any rotation in 3D space can be decompose into three rotations, one is around x, another is around y and the other is z. By placing camera in origin and point camera correctly, we can reduce workload of computation.
-To implement transformation above, we need to deduce the transformation matrix. But is difficult to dededuce matrix from \[ \mathbf{p}, \mathbf{look-up}, \mathbf{shoot} \] to \[ \mathbf{a}, \mathbf{b}, \mathbf{c}\]. A is\[1,0,0\]^T, b is \[0,1,0\]^T and c is \[0,0,1\]^T.But it's easy to deduce from the later to the former. It's easy to get matrix:
+To implement transformation above, we need to deduce the transformation matrix. But is difficult to dededuce matrix from \[ \vec{p}, \mathbf{look-up}, \mathbf{shoot} \] to \[ \mathbf{a}, \mathbf{b}, \mathbf{c}\]. A is\[1,0,0\]^T, b is \[0,1,0\]^T and c is \[0,0,1\]^T.But it's easy to deduce from the later to the former. It's easy to get matrix:
 $$
 \begin{matrix}
     \mathbf{l}x\mathbf{s} & \mathbf{l} \mathbf{s}
