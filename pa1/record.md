@@ -17,12 +17,12 @@ Perspective matrix is build on assumptions below:<br>
 So we can deduce that first and scond row is \[n,0,0,0\] from assumption 1), and the forth row is \[0,0,1,0\], if we want the ration be n/z.<br>
 And we can get the third row like \[0,0,A,B\]. So M<sub>perp</sub> is<br>  
 $$
-    \begin{matrix}
+    \begin{bmatrix}
     n & 0 & 0 & 0\\
     0 & n & 0 & 0\\
     0 & 0 & A & B\\
     0 & 0 & 1 & 0
-    \end{matrix}
+    \end{bmatrix}
 $$
 Multipile the matrix with vector\[0,0,f,1\]<sup>T</sup> and \[0,0,n,1\]<sup>T</sup> resprents the postion of dot in assumption 2) and 3),we should get the equalation:
  $$
