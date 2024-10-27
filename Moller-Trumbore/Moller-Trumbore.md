@@ -11,9 +11,9 @@ Moller-Trumbore是一种求射线与空间平面相交点的算法，其推理�
 <br>得:  $\mathbf{S}$ = -t * $\mathbf{D}$ + b<sub>1</sub> * $\mathbf{E}$<sub>1</sub> + b<sub>2</sub> * $\mathbf{E}$<sub>2</sub>).
 <br>即线性方程组 $\mathbf{S}$ = [-t, b<sub>1</sub>, b<sub>2</sub>] * [ $\mathbf{D}$, $\mathbf{E}$<sub>1</sub>, $\mathbf{E}$<sub>2</sub> ]<sup>T</sup>.
 <br>求解[-t, b1, b2]，由克拉默法则得:
-<br> $$\frac{1}/{3}
+<br> $$\frac{1}{3}
 <br> -t = $\mathbf{det}$ [ $\mathbf{S}$, $\mathbf{E}$<sub>1</sub>, $\mathbf{E}$<sub>2</sub> ] 
 <br>    = $\mathbf{S}$ $\cdot$ ($\mathbf{E}$<sub>1</sub> \times $\mathbf{E}$<sub>2</sub>),
-<br> -t = $\mathbf{E}$<sub>1</sub> $\cdot$ ($\mathbf{E}$<sub>2</sub> $\times $\mathbf{D}$).
-<br> 设 $\mathbf{E}$<sub>2</sub> \times $\mathbf{D}$ = $\mathbf{S}$<sub>1<s/ub>
+<br> -t = $\mathbf{E}$<sub>1</sub> $\cdot$ ($\mathbf{E}$<sub>2</sub> $\times$ $\mathbf{D}$).
+<br> 设 $\mathbf{E}$<sub>2</sub> $\times$ $\mathbf{D}$ = $\mathbf{S}$<sub>1<s/ub>
 <br> 得 
