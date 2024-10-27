@@ -18,3 +18,10 @@ Moller-Trumbore是一种求射线与空间平面相交点的算法，其推理�
 <br> 得  t = $\mathbf{E}$<sub>2</sub> $\cdot$ $\mathbf{S}$<sub>2</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
 <br>同理, b1 = $\mathbf{S}$ $\cdot$ $\mathbf{S}$<sub>1</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
 <br>b2 = $\mathbf{D}$ $\cdot$ $\mathbf{S}$<sub>2</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
+
+# Ray Generation的渲染结果
+在Triangle.hpp中实现Moller-Trumbore算法后，使用ray generation的方式生成光线检测是否达到光源。<br>
+Ray Generation通过对比当前物体出发到光源的距离d<sub>now</sub>和光源到最近物体的距离d<sub>min</sub>,当d<sub>now</sub> < d<sub>min</sub>时，则当前物体表现为阴影。<br>
+如下所示：
+<br> !["RayGeneration"](https://github.com/xietinghao/games101/blob/master/Moller-Trumbore/RayGeneration.png) <br>
+渲染结果显示Ray Generation可以表现物体的阴影细节。
