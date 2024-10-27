@@ -1,7 +1,7 @@
 # Moller-Trumbore
 Moller-Trumbore是一种求射线与空间平面相交点的算法，其推理如下。<br>
 空间射线 $\mathbf{o}$ + t * $\mathbf{D}$ 与空间平面相交于点 $\mathbf{p}$，该点用平面上三角形ABC的重心坐标表示为:
-<br>$\mathbf{p}$ = (1-b<sub>1</sub>-b<sub>2</sub>) * $\mathbf{P<sub>0</sub>}$ + b<sub>1</sub> * $\mathbf{P<sub>1</sub>}$ + b<sub>2</sub> * $\mathbf{P<sub>2</sub>}$。<br>
+<br> $\mathbf{p}$ = (1-b<sub>1</sub>-b<sub>2</sub>) * $\mathbf{P}$<sub>0</sub> + b<sub>1</sub> * $\mathbf{P}$<sub>1</sub> + b<sub>2</sub> * $\mathbf{P}$<sub>2</sub>。<br>
 求交点问题转变为解线性方程组问题：
 <br> ( $\mathbf{o}$-$\mathbf{p0}$ ) = -t * $\mathbf{D}$ + b<sub>1</sub> * ($\mathbf{p<sub>1</sub>}$-$\mathbf{p<sub>0</sub>}$) + b<sub>2</sub> * ($\mathbf{p<sub>2</sub>}$-$\mathbf{p<sub>0</sub>}$) <br>
 令 
