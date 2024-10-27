@@ -62,4 +62,6 @@ Shading(ray):
 
   return light_dir + light_indir;
   
-```
+```<br>
+最终得到全局光线追踪的渲染结果，渲染的材质模型是Cornell Box。
+![Cornell Box](https://github.com/xietinghao/games101/blob/master/GlobalRayTracing/CornellBox.png)
