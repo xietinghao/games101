@@ -51,10 +51,14 @@ Shading(ray):
   Inersection x; float pdf_light;
   pdfSample(x, pdf_light);
   material=Intersect(rayPX) //rayPX is ray from P to X
-  vec3 result, light_dir, light_indir;
-  if(material is lightSource || material is closer or little more remote than x)light_dir=MonteCarlo(lightSource); //MonteCarlo(lightSource) = x.lightColor * f(brdf) * dot(w_light, N_x) * dot(w_light, N_p) / length(x,p) / pdf_light; 
+  vec3 light_dir, light_indir;
+
+  //MonteCarlo(lightSource) = x.lightColor * f(brdf) * dot(w_light, N_x) * dot(w_light, N_p) / length(x,p) / pdf_light; 
+  if(material is lightSource || material is closer or little more remote than x)light_dir=MonteCarlo(lightSource); 
   float RR;
-  if(RR>CONST)light_indir=MonteCarlo(otherObject)/CONST; //MonteCarlo(otherObject) = Shading(ray(p, w_i)) * f(brdf) * dot(w_i, N_p) / pdf;
+
+  //MonteCarlo(otherObject) = Shading(ray(p, w_i)) * f(brdf) * dot(w_i, N_p) / pdf;
+  if(RR>CONST)light_indir=MonteCarlo(otherObject)/CONST; 
 
   return light_dir + light_indir;
   
