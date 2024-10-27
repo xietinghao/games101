@@ -4,5 +4,5 @@
 2)Whitted Style不考虑多次反射的间接光照，相比全局光照在细节上有缺失。<br>
 3)使用BVH结构加速光线追踪，当光线和包围盒不相交时，直接结束追踪。若光线和包围盒相交，则递归求子包围盒的交点。<br>
 完成上述部分的关键函数后，得到Whitted Style光线追踪的兔子渲染结果如下。<br>
-![rabbit](https://github.com/xietinghao/games101/blob/master/PA6/Rabbit.png)
+![rabbit](https://github.com/xietinghao/games101/blob/master/Whitted-Style%20Ray%20Tracing/Rabbit.png)
 <br>(二进制文件为Rabbit.ppm)
