@@ -37,6 +37,6 @@ $\frac{1}{N}$ $\sum_1^n$ $\frac{f(x_i)}{pdf(x_i)}$ 来表示。<br>
 则进一步从 p 点打出新光线 q， 并递归的计算 q 和下一个物体的交点，最终也能得到同样的渲染结果。<br>
 因为光线是从光源出发的，所以所有的光线追踪计算一定是有效的，因为如果这些光线能够打到目标物体上，那么该结果一定是非零值(经过光源)，所以就避免了无效的计算。<br>
 应用上述的蒙特卡洛积分形式的值，可以得到光源出发的 r 在点 p 的反射值。与物体出发时的情况不同，因为光线从光源射出，所以还需要计算光源在入射方向上的面积投影(该算法智能在面光源下成立),<br>
-面积投影的值为 S_light * $${(x_light - x_material)^2 \over \omega \cdot \mathbf{N_light} }$$  = S_material , 即：<br>
-$$ {S_light \over S_material} $$ = $$ { \omega \cdot \mathbf{N_light} \over (x_light - x_material)^2} $$ ,<br>
-代入蒙特卡洛积分得到： $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$_light) * f_brdf(p, $\omega$_light, , $\omega$_o) * ($\mathbf{N}$ $\cdot$ $\omega$_o) * $$ { \omega_light \cdot \mathbf{N_light} \over (x_light - x_material)^2} $$ * pdf(light) 。
+面积投影的值为 $${S_{light} * (x_{light} - x_{material})^2 \over \omega \cdot \mathbf{N_light}   = S_{material}}$$ , 即：<br>
+$${S_{light} \over S_{material} }$$ = $${ \omega \cdot \mathbf{N_{light}} \over (x_{light} - x_{material})^2} $$ ,<br>
+代入蒙特卡洛积分得到： $${ \frac{1}{N} sum_1^n L(p, \omega_{light}) * f_{brdf}(p, \omega_{light}, \omega_o) * (\mathbf{N} \cdot \omega_o) * \omega_{light} \cdot \mathbf{N_{light}} \over (x_{light} - x_{material})^2 * pdf(light)}$$  。
