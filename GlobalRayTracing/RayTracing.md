@@ -55,10 +55,10 @@ Shading(ray):
 
   //MonteCarlo(lightSource) = x.lightColor * f(brdf) * dot(w_light, N_x) * dot(w_light, N_p) / length(x,p) / pdf_light; 
   if(material is lightSource || material is closer or little more remote than x)light_dir=MonteCarlo(lightSource); 
-  float RR;
+  float rr;
 
-  //MonteCarlo(otherObject) = Shading(ray(p, w_i)) * f(brdf) * dot(w_i, N_p) / pdf;
-  if(RR>CONST)light_indir=MonteCarlo(otherObject)/CONST; 
+  //MonteCarlo(otherObject) = Shading(ray(p, w_i)) * f(brdf) * dot(w_i, N_p) / pdf , pdf = 2*pi
+  if(rr<RR)light_indir=MonteCarlo(otherObject)/RR; 
 
   return light_dir + light_indir;
   
