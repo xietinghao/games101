@@ -22,7 +22,7 @@ E(p, $\omega$<sub>o</sub>) = $\int$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub
 $\frac{1}{N}$ $\sum_1^n$ $\frac{f(x_i)}{pdf(x_i)}$ 来表示。<br>
 蒙特卡洛积分的核心思想是用 $\frac{f(x_i)}{pdf(x_i)}$ 来近似f(x)的值，以求解二维坐标系上x $\epsilon$ [a,b]的函数f(x) = k 与坐标轴的包围面积为例，<br>
 其积分形式为 $\int_a^b$ f(x) dx = k $\int_a^b$ dx = k(b-a)。<br>
-蒙特卡洛积分的近似模拟为 $\frac{1}{N}$ $\sum_1^n$ $\frac{f(x_i)}{pdf(x_i)} = $\frac{1}{N}$ $\sum_1^n$ $\frac{k}{1/(b-a)}$ = k(b-a)。<br>
+蒙特卡洛积分的近似模拟为 $\frac{1}{N}$ $\sum_1^n$ $\frac{f(x_i)}{pdf(x_i)}$ = $\frac{1}{N}$ $\sum_1^n$ $\frac{k}{1/(b-a)}$ = k(b-a)。<br>
 通过借助每一次模拟，当 N -> $\infty$ ，积分值无限接近/等于定积分值。<br>
 回到RayTracing算法中， E(p, $\omega$<sub>o</sub>) = $\int$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) d $\omega$ ,<br>
 它的蒙特卡洛积分形式为 $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * 1/pdf($\omega$) , <br>
