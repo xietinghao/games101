@@ -11,7 +11,8 @@ Moller-Trumbore是一种求射线与空间平面相交点的算法，其推理�
 <br>得:  $\mathbf{S}$ = -t * $\mathbf{D}$ + b<sub>1</sub> * $\mathbf{E}$<sub>1</sub> + b<sub>2</sub> * $\mathbf{E}$<sub>2</sub>).
 <br>即线性方程组 $\mathbf{S}$ = [-t, b<sub>1</sub>, b<sub>2</sub>] * [ $\mathbf{D}$, $\mathbf{E}$<sub>1</sub>, $\mathbf{E}$<sub>2</sub> ]<sup>T</sup>.
 <br>求解[-t, b1, b2]，由克拉默法则得:
-<br> 
+<br> When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 <br> 
 <br> $$ -t = {$\mathbf{det}$ [ $\mathbf{D}$, $\mathbf{E}$<sub>1</sub>, $\mathbf{E}$<sub>2</sub> ]  \over  $\mathbf{det}$ [ $\mathbf{S}$, $\mathbf{E}$<sub>1</sub>, $\mathbf{E}$<sub>2</sub> ]} $$
 <br> $$ -t = $\mathbf{E}$<sub>2</sub> $\cdot$ ($\mathbf{D}$ $\times$ $\mathbf{E}$<sub>1</sub>)  \over  $\mathbf{E}$<sub>2</sub> $\cdot$ ($\mathbf{S}$ $\times$ $\mathbf{E}$<sub>1</sub>) $$,
