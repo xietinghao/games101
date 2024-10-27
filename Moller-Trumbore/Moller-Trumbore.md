@@ -16,5 +16,5 @@ Moller-Trumbore是一种求射线与空间平面相交点的算法，其推理�
 <br> 设 $\mathbf{D}$ $\times$ $\mathbf{E}$<sub>2</sub> = $\mathbf{S}$<sub>1</sub>,
 <br> $\mathbf{S}$ $\times$ $\mathbf{E1}$ = $\mathbf{S}$<sub>2</sub>,
 <br> 得  t = $\mathbf{E}$<sub>2</sub> $\cdot$ $\mathbf{S}$<sub>2</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
-<br>同理, b1 = $\mathbf{S}$ $\cdot$ $\mathbf{S}$<sub>2</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
-<br>b2 = $\mathbf{D}$ $\cdot$ $\mathbf{S}$<sub>1</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
+<br>同理, b1 = $\mathbf{S}$ $\cdot$ $\mathbf{S}$<sub>1</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
+<br>b2 = $\mathbf{D}$ $\cdot$ $\mathbf{S}$<sub>2</sub> / $\mathbf{E}$<sub>1</sub> $\cdot$ $\mathbf{S}$<sub>1</sub>}.
