@@ -27,5 +27,16 @@ $\frac{1}{N}$ $\sum_1^n$ $\frac{f(x_i)}{pdf(x_i)}$ 来表示。<br>
 回到RayTracing算法中， E(p, $\omega$<sub>o</sub>) = $\int$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) d $\omega$ ,<br>
 它的蒙特卡洛积分形式为 $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * $${1 \over pdf(\omega)}$$ , <br>
 实际反射的物理过程，立体角 $\omega$ 位于法向量 $\mathbf{N}$ 指向的上半球面，用均匀分布律描述 $\omega$, 则pdf( $\omega$ ) = $\frac{1}{2 * pi}$ 。 <br>
-最后，蒙特卡洛积分形式的 反射方程为 $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * (2 * pi) ,
+最后，蒙特卡洛积分形式的反射方程为 $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * (2 * pi) 。<br>
+现在使用蒙特卡洛积分求解光线追踪算法，当每条光线命中反光物体时，返回上述的反射方程的积分解。
 
+## 全局光线追踪算法的优化
+使用光线追踪算法时，当场景中的非光源数量远大于光源数量(这是一种很常见的情况)，每一个物体发出的光线只有很少的一部分能够在多重递归中最终抵达光源，剩下没有抵达光源的光线对结果不产生任何影响。<br>
+显然，这一部分的光线追踪计算是无效的。如果可以避免这部分的无效计算，光线追踪算法的性能将会有很大提升。<br>
+考虑这种情况，假设光线 r 不再是从物体出发，而是从光源出发，并能得到 r 与物体的交点 p , 如果交点 p 位于目标物体上，说明目标物体能够被照亮。<br>
+则进一步从 p 点打出新光线 q， 并递归的计算 q 和下一个物体的交点，最终也能得到同样的渲染结果。<br>
+因为光线是从光源出发的，所以所有的光线追踪计算一定是有效的，因为如果这些光线能够打到目标物体上，那么该结果一定是非零值(经过光源)，所以就避免了无效的计算。<br>
+应用上述的蒙特卡洛积分形式的值，可以得到光源出发的 r 在点 p 的反射值。与物体出发时的情况不同，因为光线从光源射出，所以还需要计算光源在入射方向上的面积投影(该算法智能在面光源下成立),<br>
+面积投影的值为 S_light * $$ {(x_light - x_material)^2 \over \omega \cdot \mathbf{N_light} } $$  = S_material , 即：<br>
+$$ {S_light \over S_material} $$ = $$ { \omega \cdot \mathbf{N_light} \over (x_light - x_material)^2} $$ ,<br>
+代入蒙特卡洛积分得到： $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$_light) * f_brdf(p, $\omega$_light, , $\omega$_o) * ($\mathbf{N}$ $\cdot$ $\omega$_o) * $$ { \omega_light \cdot \mathbf{N_light} \over (x_light - x_material)^2} $$ * pdf(light) 。
