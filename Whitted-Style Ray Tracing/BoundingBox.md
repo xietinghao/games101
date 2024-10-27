@@ -3,7 +3,7 @@ AABB包围盒是一种在空间中求射线或直线与物体交点的方式，�
 设EF为从点 $\mathbf{E}$ = [-1, 2]出发，方向向量 $\mathbf{e}$ = [3, 2]的一条射线，二维空间中的包围面为直线AB与CD的包围面ABDC。
 射线EF = $\mathbf{E}$ + t * $\mathbf{e}$,与构成包围面ABDC的四条直线分别交于点E、F、G、H。
 <br>
-![BoundingBox](https://github.com/xietinghao/games101/blob/master/PA6/BoundingBox.png)
+![BoundingBox](https://github.com/xietinghao/games101/blob/master/Whitted-Style%20Ray%20Tracing/BoundingBox.png)
 <br>
 AABB包围盒的中心思想是，射线和每一对平行轴的交点对都会构成一个区间，取区间的交集，当交集中包含大于0的元素时，射线和包围盒相交。
 如图，求解 $\mathbf{E}$<sub>x</sub> + t * $\mathbf{e}$<sub>x</sub> = $\mathbf{E}$<sub>x</sub> 和 $\mathbf{E}$<sub>x</sub> + t * $\mathbf{e}$<sub>x</sub> = $\mathbf{G}$<sub>x</sub>
