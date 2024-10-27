@@ -23,7 +23,7 @@ E(p, $\omega$<sub>o</sub>) = $\int$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub
 蒙特卡洛积分的近似模拟为 $\frac{1}{N}$ $\sum_1^n$ f(x<sub>i</sub>)/pdf(x<sub>i</sub>) = $\frac{1}{N}$ $\sum_1^n$ $\frac{k}{1/(b-a)}$ = k(b-a)。<br>
 通过借助每一次模拟，当 N -> $\infty$ ，积分值无限接近/等于定积分值。<br>
 回到RayTracing算法中， E(p, $\omega$<sub>o</sub>) = $\int$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) d $\omega$ 的蒙特卡洛积分形式为
-$\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * $ \frac{1}{pdf( $\omega$ )} $, <br>
+$\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * $\frac{1}{pdf( $\omega$ )}$, <br>
 实际反射的物理过程，立体角 $\omega$ 位于法向量$\mathbf{N}$ 指向的上半球面，用均匀分布律描述 $\omega$, 则pdf( $\omega$ ) = $\frac{1}{2 * pi}。 <br>
-最后，蒙特卡洛积分形式的 反射方程为 $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * $ \frac{1}{2 * pi} $,
+最后，蒙特卡洛积分形式的 反射方程为 $\frac{1}{N}$ $\sum_1^n$ L(p, $\omega$<sub>o</sub>) * f<sub>brdf</sub>(p, $\omega$<sub>i</sub>, , $\omega$<sub>o</sub>) * ($\mathbf{N}$ $\cdot$ $\omega$<sub>o</sub>) * $\frac{1}{2 * pi}$,
 
