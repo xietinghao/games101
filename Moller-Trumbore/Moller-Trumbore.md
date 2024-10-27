@@ -24,4 +24,4 @@ Moller-Trumbore是一种求射线与空间平面相交点的算法，其推理�
 Ray Generation通过对比当前物体出发到光源的距离d<sub>now</sub>和光源到最近物体的距离d<sub>min</sub>,当d<sub>now</sub> < d<sub>min</sub>时，则当前物体表现为阴影。<br>
 如下所示：
 <br> !["RayGeneration"](https://github.com/xietinghao/games101/blob/master/Moller-Trumbore/RayGeneration.png) <br>
-渲染结果显示Ray Generation可以表现物体的阴影细节。
+Ray Generation的渲染结果具有表现物体阴影细节的能力。
