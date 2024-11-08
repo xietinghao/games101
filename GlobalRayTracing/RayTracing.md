@@ -65,3 +65,41 @@ Shading(ray):
 ```
 最终得到全局光线追踪的渲染结果，渲染的材质模型是Cornell Box。
 <br>![Cornell Box](https://github.com/xietinghao/games101/blob/master/GlobalRayTracing/CornellBox.png)<br>
+
+##多线程的优化思路
+线程是进程的子概念，一个进程可以创建属于其的多个子线程，进程享有硬件资源的分配，线程享有cpu的使用权，对计算密集型的任务，为了充分利用cpu的核心数量，可以创建多个子线程分布在不同核心上进行并行计算。 <br>
+c++的多线程实现可以用thread库操作，一个多线程的c++实例代码如下:
+```
+#include <thread>
+#include <vector>
+#include <iostream>
+void printHello(const string &str){
+  std::cout<<"hello"<<str<<std::endl;
+}
+void main(){
+  const int threadNum=3;
+  std::vector<std::thread> threadVec(threadNum);
+  for(int i=0;i<threadNum;i++)threaVec.push_back(std::thread(printHello, std::cref(std::to_string(i))));
+  for(int i=0;i<threadNum;i++)threadVec[i].join();
+}
+```
+c++的thread对象在传递函数参数时，一律传递右值，即不能传递左值或左值引用给调用函数，当函数参数必须通过引用或者常量引用传递时，需要使用std::ref(refName)或者std::cref(constRefName)包装参数，实现参数传递。<br>
+光线追踪的渲染过程中对每一个像素点采用递归的光线追踪算法，并且不同像素点之间的计算是并行进行的，不存在互斥或者同步问题，是一个适合用多线程优化的场景问题，因为该框架是运行在cpu上的，无法利用gpu的并行计算，那么c++的thread库就有了用武之地。<br>
+多线程的伪代码：
+···
+  create threadVec;     //vector<thread> threadVec;
+  count num of pixel;   //pixelNum = screenWidth * screenHeight;
+
+  divide tasks to each thread;
+  /*
+  pixelBegin=0, pixelEnd=N;
+  for(int i=0;i<threadNum;i++){
+    threadVec.push_back(threadFunc, pixelBegin, pixelEnd ...);
+    pixelBegin+=N;
+    pixelEnd= min(maxPixelNums, pixelBegin+N);
+  }
+  */
+
+  updateScreen;
+···
+多线程的优化代码为Renderer_MultiThread.cpp，结果一致。
