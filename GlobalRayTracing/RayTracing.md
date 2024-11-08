@@ -99,7 +99,8 @@ c++的thread对象在传递函数参数时，一律传递右值，即不能传�
     pixelEnd= min(maxPixelNums, pixelBegin+N);
   }
   */
+  wait until threads completed tasks //for(int i=0;i<threadNum;i++)threadVec[i].join(); 
 
   updateScreen;
 ```
-多线程的优化代码为Renderer_MultiThread.cpp，结果一致。
+多线程的优化代码为Renderer_MultiThread.cpp，渲染得到的Cornell Box与上图一致。
